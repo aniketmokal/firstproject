@@ -1,0 +1,13 @@
+git init
+git config --global user.name aniketmokal
+git config --global user.email aniketmkl@gmail.com
+
+git add .
+git remote add origin https://github.com/aniketmokal/firstproject.git
+
+git commit -m "message"
+git push -u origin master
+
+---------------------------------------
+username
+password

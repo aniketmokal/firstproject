@@ -42,6 +42,19 @@ session_start();
               </div>
             </div>
           </div>
+           <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="exampleInputPassword1">UserType</label>
+                <select class="form-control" name="usertype">
+                  <option value="">Please Select User Type</option>
+                  <option value="2">Hotel Owener</option>
+                  <option value="1">Customer</option>
+                </select>
+              </div>
+              
+            </div>
+          </div>
           <button type="button" class="btn btn-primary btn-block btn_register" >Register</button>
         </form>
         <div class="errordiv">

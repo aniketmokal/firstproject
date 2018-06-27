@@ -40,6 +40,7 @@
 					$_SESSION['usermobile'] =$result_userdata[0]['us_mobile'];
 					$_SESSION['userid'] =$result_userdata[0]['us_id'];
 					$_SESSION['userstatus'] =$result_userdata[0]['us_status'];
+					$_SESSION['usertype'] =$result_userdata[0]['us_type'];
 
 					echo "success";
 				}

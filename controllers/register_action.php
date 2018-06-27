@@ -18,11 +18,16 @@
 	else if($_REQUEST['upass'] != $_REQUEST['ucpass']){
 		echo "Invalid confirm password";
 	}
+	else if(empty($_REQUEST['usertype']))
+	{
+		echo "please Select UserType";
+	}	
 	else{
 		// echo "ok";
 		$name = $_REQUEST['uname'];
 		$mobile = $_REQUEST['umobile'];
 		$email = $_REQUEST['uemail'];
+		$usertype = $_REQUEST['usertype'];
 		$pass = sha1($_REQUEST['upass']);
 
 		
@@ -41,8 +46,8 @@
 			else{
 				$obj->insert(
 					"pro_users",
-					"us_name,us_mobile,us_email,us_password",
-					"'$name','$mobile','$email','$pass'"
+					"us_name,us_mobile,us_email,us_password,us_type",
+					"'$name','$mobile','$email','$pass','$usertype'"
 					);
 				
 
@@ -54,42 +59,42 @@
 				// exit;
 
 				/*****************email / sms****************/
-				$to = $email;
-				$subject = "Email verification Process";
+				// $to = $email;
+				// $subject = "Email verification Process";
 
-				$message = "<h1> Please click here to verify : <a href='http://localhost/dhiraj/project/views/verification.php?userid=$uid'>VERIFY</a> </h1>";
+				// $message = "<h1> Please click here to verify : <a href='http://localhost/dhiraj/project/views/verification.php?userid=$uid'>VERIFY</a> </h1>";
 
-				// Always set content-type when sending HTML email
-				$headers = "MIME-Version: 1.0" . "\r\n";
-				$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-				// More headers
-				$headers .= 'From: Dhiraj <vishal@php-training.in>' . "\r\n";
-				$res = mail($to,$subject,$message,$headers);
+				// // Always set content-type when sending HTML email
+				// $headers = "MIME-Version: 1.0" . "\r\n";
+				// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+				// // More headers
+				// $headers .= 'From: Dhiraj <vishal@php-training.in>' . "\r\n";
+				// $res = mail($to,$subject,$message,$headers);
 				// var_dump($res);
 
 				/*****************email / sms****************/
 				// Authorisation details.
-				$username = "pednekar235@gmail.com";
-				$hash = "fd0068da67064d0a1a2d880e7f7162462baed7b3dafa90a0701e90e5f1c77f68";
+				// $username = "pednekar235@gmail.com";
+				// $hash = "fd0068da67064d0a1a2d880e7f7162462baed7b3dafa90a0701e90e5f1c77f68";
 
-				// Config variables. Consult http://api.textlocal.in/docs for more info.
-				$test = "0";
+				// // Config variables. Consult http://api.textlocal.in/docs for more info.
+				// $test = "0";
 
-				// Data for text message. This is the text message data.
-				$sender = "TXTLCL"; // This is who the message appears to be from.
-				$numbers = "91$mobile"; // A single number or a comma-seperated list of numbers
-				$message = "Welcome To my Portal";
-				// 612 chars or less
-				// A single number or a comma-seperated list of numbers
-				$message = urlencode($message);
-				$data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
-				$ch = curl_init('http://api.textlocal.in/send/?');
-				curl_setopt($ch, CURLOPT_POST, true);
-				curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				$result = curl_exec($ch); // This is the result from the API
-				// print_r($result);
-				curl_close($ch);
+				// // Data for text message. This is the text message data.
+				// $sender = "TXTLCL"; // This is who the message appears to be from.
+				// $numbers = "91$mobile"; // A single number or a comma-seperated list of numbers
+				// $message = "Welcome To my Portal";
+				// // 612 chars or less
+				// // A single number or a comma-seperated list of numbers
+				// $message = urlencode($message);
+				// $data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
+				// $ch = curl_init('http://api.textlocal.in/send/?');
+				// curl_setopt($ch, CURLOPT_POST, true);
+				// curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+				// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				// $result = curl_exec($ch); // This is the result from the API
+				// // print_r($result);
+				// curl_close($ch);
 				/*****************email / sms****************/
 				echo "User Added";
 			}

@@ -69,6 +69,21 @@
             <li>
               <a href="changepassword.php">Change Password</a>
             </li>
+            <?php
+            if($_SESSION['usertype']==2):
+            ?>
+            <li>
+              <a href="create-hotel.php">Create hotel</a>
+            </li>
+            <li>
+              <a href="create-branch.php">Create branch</a>
+            </li>
+             <li>
+              <a href="create-rooms.php">Create Rooms</a>
+            </li>
+            <?php
+            endif;
+            ?>
             <li>
               <a href="logout.php">Logout (<?php echo $_SESSION['username'];?>)</a>
             </li>

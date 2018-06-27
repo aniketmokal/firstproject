@@ -59,4 +59,49 @@ $(document).ready(function(){
 		})
 	})
 
+
+	$(".btn_hotel").click(function(){
+		// alert(1);
+
+
+		rec=$("#hotel_form").serialize();
+		
+		// console.log(rec);
+		$.ajax({
+			type:"post",
+			data:rec,
+			url:"../controllers/hotel-action.php",
+			success:function(results){
+				$(".errordiv").html(results);
+
+			},
+			error:function(eerr){
+				console.log(eerr)
+			}
+
+		})
+	})
+
+	$(".btn_branch").click(function(){
+		// alert(1);
+
+
+		rec=$("#hotel_branch").serialize();
+		
+		// console.log(rec);
+		$.ajax({
+			type:"post",
+			data:rec,
+			url:"../controllers/branch-action.php",
+			success:function(results){
+				$(".errordiv").html(results);
+
+			},
+			error:function(eerr){
+				console.log(eerr)
+			}
+
+		})
+	})
+
 })

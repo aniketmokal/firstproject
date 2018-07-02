@@ -102,6 +102,52 @@ $(document).ready(function(){
 			}
 
 		})
-	})
+	});
+
+	// alert(1)
+	$(".select_hotel").change(function(){
+		// alert(1)
+		hoid= $(this).val();
+		// alert(hoid)
+		if(hoid==""){
+			alert("Please select Hotel");
+		}
+		else{
+			$.ajax({
+				type:"post",
+				data:"xyz="+hoid,
+				url:"../controllers/getbranch-hotel-wise.php",
+				success:function(results){
+					// console.log(results)
+					$(".branch_select").html(results);
+				},
+				error:function(eerr){
+					console.log(eerr)
+				}
+			})
+		}
+	});
+
+	$(".btn_room").click(function(){
+		// alert(1);
+
+
+		rec=$("#hotel_room").serialize();
+		
+		// console.log(rec);
+		$.ajax({
+			type:"post",
+			data:rec,
+			url:"../controllers/room-action.php",
+			success:function(results){
+				$(".errordiv").html(results);
+
+			},
+			error:function(eerr){
+				console.log(eerr)
+			}
+
+		})
+	});
 
 })

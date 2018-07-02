@@ -26,8 +26,12 @@ create table pro_hotel_room(
 	ro_id int auto_increment primary key,
 	ro_no varchar(100),
 	ro_photo text,
+	ro_price decimal(6,2),
 	ro_brid int
 );
+
+alter table pro_hotel_room add column ro_price decimal(6,2) after ro_photo
+--  9999.99
 
 create table pro_room_book(
 	book_id int auto_increment primary key,

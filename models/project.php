@@ -18,6 +18,14 @@
 				"ho_userid='$userid'"
 			);
 		}
+
+		function get_branch_hotelwise($id){
+			return helpers::select(
+				"br_id,br_name",
+				"pro_hotel_branch",
+				"br_hotel_id='$id'"
+			);
+		}
 	}
 
 	$obj = new project();

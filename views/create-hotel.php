@@ -26,6 +26,11 @@
             <label for="exampleInputEmail1">Hotel Name</label>
             <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Taj Land" type="text" name="hotel_name">
           </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Hotel Photo</label>
+            <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Taj Land" type="file" name="hotel_photo">
+          </div>
           
           <button type="button" class="btn btn-primary btn-block btn_hotel" >Add name</button>
         </form>

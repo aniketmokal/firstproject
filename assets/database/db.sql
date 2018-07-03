@@ -16,6 +16,8 @@ create table pro_hotel(
 	ho_userid int
 );
 
+alter table pro_hotel add column ho_photo text after ho_name;
+
 create table pro_hotel_branch(
 	br_id int auto_increment primary key,
 	br_name varchar(100),

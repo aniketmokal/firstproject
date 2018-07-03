@@ -64,12 +64,18 @@ $(document).ready(function(){
 		// alert(1);
 
 
-		rec=$("#hotel_form").serialize();
-		
+		//rec=$("#hotel_form").serialize();
+
+		var form_obj = document.getElementById('hotel_form');
+		// alert(form_obj);
+		var form_data_obj = new FormData(form_obj)
+		// alert(form_data_obj);
 		// console.log(rec);
 		$.ajax({
 			type:"post",
-			data:rec,
+			data:form_data_obj,
+			contentType:false,
+			processData:false,
 			url:"../controllers/hotel-action.php",
 			success:function(results){
 				$(".errordiv").html(results);

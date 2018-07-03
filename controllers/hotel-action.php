@@ -1,6 +1,7 @@
 <?php 
 	require_once "../models/project.php";
-	// print_r($_REQUEST);
+	// pre($_REQUEST);
+	// pre($_FILES);
 	// print_r($_SESSION);
 
 	// exit;
@@ -28,10 +29,17 @@
 				echo "Hotel Name Exist";
 			}
 			else{
+
+				$name = rand(1000,9999).$_FILES['hotel_photo']['name'];
+				$tmp = $_FILES['hotel_photo']['tmp_name'];	
+				$path = "../assets/uploads/".$name;
+
+				move_uploaded_file($tmp, $path);
+				
 				$obj->insert(
 					"pro_hotel",
-					"ho_name,ho_userid",
-					"'$name','$uid'"
+					"ho_name,ho_userid,ho_photo",
+					"'$name','$uid','$path'"
 					);
 				
 

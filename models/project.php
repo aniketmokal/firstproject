@@ -26,6 +26,26 @@
 				"br_hotel_id='$id'"
 			);
 		}
+
+		function get_hotels()
+		{
+			//select ho_id,ho_name,ho_photo,us_name,us_mobile,us_email from pro_users,pro_hotel  where us_id=ho_userid order by ho_name asc
+			return helpers::select(
+				"ho_id,ho_name,ho_photo,us_name,us_mobile,us_email",
+				"pro_users,pro_hotel",
+				"us_id=ho_userid order by ho_name asc"
+			);
+		}
+
+		function get_room_branchwise($id){
+			return helpers::select(
+				"ro_id,ro_no,ro_price",
+				"pro_hotel_room",
+				"ro_brid='$id'"
+			);
+		}	
+
+		
 	}
 
 	$obj = new project();
